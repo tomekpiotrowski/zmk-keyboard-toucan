@@ -8,47 +8,49 @@
 #define SYM  2
 #define FUN  3
 
+#define COMBO_TIMEOUT 60
+
 / {
     combos {
         compatible = "zmk,combos";
 
         combo_nav_left {
-            timeout-ms = <80>;
+            timeout-ms = <COMBO_TIMEOUT>;
             key-positions = <15 16>;  // S and T keys
             bindings = <&mo NAV>;
             layers = <BASE>;
         };
 
         combo_nav_right {
-            timeout-ms = <80>;
+            timeout-ms = <COMBO_TIMEOUT>;
             key-positions = <19 20>;  // N and E keys
             bindings = <&mo NAV>;
             layers = <BASE>;
         };
 
         combo_sym_left {
-            timeout-ms = <80>;
+            timeout-ms = <COMBO_TIMEOUT>;
             key-positions = <14 16>;  // R and T keys
             bindings = <&mo SYM>;
             layers = <BASE>;
         };
 
         combo_sym_right {
-            timeout-ms = <80>;
+            timeout-ms = <COMBO_TIMEOUT>;
             key-positions = <19 21>;  // N and I keys
             bindings = <&mo SYM>;
             layers = <BASE>;
         };
 
         combo_fun_left {
-            timeout-ms = <80>;
+            timeout-ms = <COMBO_TIMEOUT>;
             key-positions = <13 16>;  // A and T keys
             bindings = <&mo FUN>;
             layers = <BASE>;
         };
 
         combo_fun_right {
-            timeout-ms = <80>;
+            timeout-ms = <COMBO_TIMEOUT>;
             key-positions = <19 22>;  // N and O keys
             bindings = <&mo FUN>;
             layers = <BASE>;
