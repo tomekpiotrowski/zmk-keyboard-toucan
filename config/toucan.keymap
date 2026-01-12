@@ -58,9 +58,32 @@
         };
     };
 
+    macros {
+        ctrl_shift_insert: ctrl_shift_insert {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings = <&macro_press &kp LCTRL &kp LSHFT>
+                     , <&macro_tap &kp INS>
+                     , <&macro_release &kp LCTRL &kp LSHFT>;
+        };
+
+        ctrl_shift_copy: ctrl_shift_copy {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings = <&macro_press &kp LCTRL &kp LSHFT>
+                     , <&macro_tap &kp C>
+                     , <&macro_release &kp LCTRL &kp LSHFT>;
+        };
+
+        email: email {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings = <&macro_tap &kp T &kp O &kp M &kp A &kp H &kp A &kp W &kp K &kp AT &kp T &kp O &kp M &kp A &kp H &kp A &kp W &kp K &kp DOT &kp P &kp L>;
+        };
+    };
+
     keymap {
         compatible = "zmk,keymap";
-
         base {
             display-name = "BASE";
             bindings = <
@@ -87,16 +110,16 @@
                 &trans &kp EXCL &kp AT &kp HASH &kp DLLR &kp PRCNT   &kp CARET    &kp AMPS  &kp KP_MULTIPLY &kp LPAR &kp RPAR &trans
                 &trans &kp N1   &kp N2 &kp N3   &kp N4   &kp N5      &kp MINUS    &kp EQUAL &kp BSLH        &kp LBKT &kp RBKT &trans
                 &trans &kp N6   &kp N7 &kp N8   &kp N9   &kp N0      &kp UNDER    &kp PLUS  &kp PIPE        &kp LBRC &kp RBRC &trans
-                                          &trans   &trans   &trans   &kp QMARK    &kp LT    &kp GT
+                                          &kp SQT &kp DQT &kp GRAVE  &kp QMARK    &kp LT    &kp GT
             >;
         };
 
         fun {
             display-name = "FUN";
             bindings = <
-                &trans  &trans &trans &trans  &trans  &trans       &trans      &trans       &trans       &trans    &trans &trans
+                &trans  &trans &trans &trans  &trans  &trans       &email &ctrl_shift_insert &ctrl_shift_copy &trans   &trans &trans
                 &kp F1  &kp F2 &kp F3 &kp F4  &kp F5  &kp F6       &kp C_MUTE  &kp C_VOL_DN &kp C_VOL_UP &kp PSCRN &trans &trans
-                &kp F7  &kp F8 &kp F9 &kp F10 &kp F11 &kp F12      &kp K_CUT   &kp K_COPY   &kp K_PASTE  &trans    &trans &trans
+                &kp F7  &kp F8 &kp F9 &kp F10 &kp F11 &kp F12      &kp K_CUT   &kp K_COPY &kp K_PASTE  &kp INS &trans &trans
                                       &trans  &trans  &trans       &trans      &trans       &trans
             >;
         };
